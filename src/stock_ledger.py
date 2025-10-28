@@ -47,18 +47,6 @@ class StockLedger:
 
     def display_ledger(self):
         print("---- Stock Ledger ----")
-        if not self.entries:
-            print("Portfolio is empty")
-            return
-            
         for entry in self.entries:
-            total_shares = sum(purchase.shares for purchase in entry.purchases)
-            if total_shares > 0:
-                print(f"\nStock: {entry.stock_symbol}")
-                print(f"Total Shares: {total_shares}")
-                print("\nPurchase Details:")
-                print("-----------------")
-                for purchase in entry.purchases:
-                    print(f"  Shares: {purchase.shares}, Cost per share: ${purchase.cost_per_share:.2f}")
             print(entry.display_entry())
         print()
